@@ -16,3 +16,5 @@ export default function RootLayout(props: { children: React.ReactNode }) {
     </html>
   )
 }
+
+// export const runtime = "edge";

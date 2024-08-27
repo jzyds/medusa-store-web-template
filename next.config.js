@@ -1,6 +1,6 @@
 const { withStoreConfig } = require("./store-config")
 const store = require("./store.config.json")
-const { setupDevPlatform } = require('@cloudflare/next-on-pages/next-dev');
+// const { setupDevPlatform } = require("@cloudflare/next-on-pages/next-dev")
 
 /**
  * @type {import('next').NextConfig}
@@ -30,11 +30,12 @@ const nextConfig = withStoreConfig({
   },
 })
 
-if (process.env.NODE_ENV === 'development') {
-  await setupDevPlatform();
-}
+// if (process.env.NODE_ENV === "development") {
+//   ;(async function name(params) {
+//     await setupDevPlatform()
+//   })()
+// }
 
 console.log("next.config.js", JSON.stringify(module.exports, null, 2))
 
 module.exports = nextConfig
-module.exports.runtime = "edge"

@@ -29,3 +29,5 @@ export default async function StorePage({ searchParams, params }: Params) {
     />
   )
 }
+
+// export const runtime = "edge";
