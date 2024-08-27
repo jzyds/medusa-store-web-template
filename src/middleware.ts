@@ -85,6 +85,7 @@ async function getCountryCode(
  * Middleware to handle region selection and onboarding status.
  */
 export async function middleware(request: NextRequest) {
+  return NextResponse.next();
   const searchParams = request.nextUrl.searchParams
   const isOnboarding = searchParams.get("onboarding") === "true"
   const cartId = searchParams.get("cart_id")
@@ -131,7 +132,7 @@ export async function middleware(request: NextRequest) {
   if (cartId && !checkoutStep) {
     redirectUrl = `${redirectUrl}&step=address`
     response = NextResponse.redirect(`${redirectUrl}`, 307)
-    response.cookies.set("_medusa_cart_id", cartId, { maxAge: 60 * 60 * 24 })
+    // response.cookies.set("_medusa_cart_id", cartId, { maxAge: 60 * 60 * 24 })
   }
 
   // Set a cookie to indicate that we're onboarding. This is used to show the onboarding flow.
