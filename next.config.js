@@ -1,5 +1,6 @@
 const { withStoreConfig } = require("./store-config")
 const store = require("./store.config.json")
+import { setupDevPlatform } from '@cloudflare/next-on-pages/next-dev';
 
 /**
  * @type {import('next').NextConfig}
@@ -29,6 +30,12 @@ const nextConfig = withStoreConfig({
   },
 })
 
+if (process.env.NODE_ENV === 'development') {
+  await setupDevPlatform();
+}
+
 console.log("next.config.js", JSON.stringify(module.exports, null, 2))
 
 module.exports = nextConfig
+
+export const runtime = "edge";

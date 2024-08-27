@@ -13,7 +13,10 @@
     "start": "next start -p 8000",
     "lint": "next lint",
     "analyze": "ANALYZE=true next build",
-    "test-e2e": "playwright test e2e"
+    "test-e2e": "playwright test e2e",
+    "pages:build": "npx @cloudflare/next-on-pages",
+    "preview": "npm run pages:build && wrangler pages dev",
+    "deploy": "npm run pages:build && wrangler pages deploy"
   },
   "resolutions": {
     "webpack": "^5",
@@ -49,6 +52,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.17.5",
+    "@cloudflare/next-on-pages": "^1.13.2",
     "@medusajs/client-types": "^0.2.2",
     "@medusajs/medusa": "^1.18.0",
     "@medusajs/ui-preset": "^1.0.2",
